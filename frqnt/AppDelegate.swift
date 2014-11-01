@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.setApplicationId("Anu8qHGFullCaUpSh3OxBQdWMShuaW8Pbb3v12EO", clientKey:"qI0n3nOaY1F2Ng28Vj4FGuOKKwXUorZQ9Bw2UgMk")
+        
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, nil)
+        
+        PFUser.enableAutomaticUser()
+        
+        var defaultACL = PFACL.ACL()
+
+        defaultACL.setPublicReadAccess(true)
+        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
+        
         return true
     }
 
